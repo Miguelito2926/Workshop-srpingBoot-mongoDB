@@ -18,13 +18,11 @@ public class Instiation implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
-        userRepository.deleteAll();
-
+/*
         User ednaldo = new User(null, "Ednaldo Tavares", "ednaldo@gamil.com");
         User miguel = new User(null, "Miguel Tavares", "miguel@gamil.com");
-        User nica = new User(null, "Nica Tavares", "nica@gamil.com");
-
-        userRepository.saveAll(Arrays.asList(nica, ednaldo, miguel));
+        User nica = new User(null, "Nica Tavares", "nica@gamil.com");*/
+/*
+        userRepository.saveAll(Arrays.asList(nica, ednaldo, miguel));*/
     }
 }
