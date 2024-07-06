@@ -22,7 +22,7 @@ public class UserDTO implements Serializable {
         name = user.getName();
         email = user.getEmail();
     }
-
+//Construtor ja é inatnciado recebendo os dados automaticamnente sem a necessidade de setar
     public UserDTO(Optional<User> user) {
         this.id = user.get().getId();
         name = user.get().getName();
