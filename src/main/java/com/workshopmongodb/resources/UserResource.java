@@ -3,7 +3,11 @@ package com.workshopmongodb.resources;
 import com.workshopmongodb.domain.User;
 import com.workshopmongodb.dto.UserDTO;
 import com.workshopmongodb.service.UserService;
+import jakarta.persistence.PostUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.repository.Update;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -46,6 +50,14 @@ public class UserResource {
     public ResponseEntity<Void> deleteById(@PathVariable String id) {
         userService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<User> update(@RequestBody UserDTO userDto, @PathVariable String id) {
+        User user = userService.fromDTO(userDto);
+        user.setId(id);
+        Optional<User> obj = userService.update(user);
+        return obj.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
 

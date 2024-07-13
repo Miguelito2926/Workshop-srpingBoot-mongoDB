@@ -12,6 +12,8 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @Data
+@Getter
+@Setter
 
 @Document(collection = "user")
 public class User implements Serializable {
@@ -27,5 +29,4 @@ public class User implements Serializable {
         this.name = name;
         this.email = email;
     }
-
 }
