@@ -4,6 +4,7 @@ import com.workshopmongodb.domain.Post;
 import com.workshopmongodb.domain.User;
 import com.workshopmongodb.domain.repository.PostRepository;
 import com.workshopmongodb.domain.repository.UserRepository;
+import com.workshopmongodb.dto.AuthorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -30,19 +31,20 @@ public class Instiation implements CommandLineRunner {
 
         User ednaldo = new User(null, "Ednaldo Tavares", "ednaldo@gamil.com");
         User miguel = new User(null, "Miguel Tavares", "miguel@gamil.com");
-        User Dione = new User(null, "Nica Tavares", "nica@gamil.com");
+        User dione = new User(null, "Nica Tavares", "nica@gamil.com");
+
+        userRepository.saveAll(Arrays.asList(dione, ednaldo, miguel));
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
     Post post = new Post(null,sdf.parse(
             "13/07/2024"),"Partiu Viagem!",
-            "Vou viajar para São Paulo. Abraços!", Dione);
+            "Vou viajar para São Paulo. Abraços!", new AuthorDTO(miguel));
 
         Post post1 = new Post(null,sdf.parse(
                 "13/07/2024"),"Bom dia!",
-                "Acordei feliz hoje!!", miguel);
+                "Acordei feliz hoje!!", new AuthorDTO(dione));
 
-        userRepository.saveAll(Arrays.asList(Dione, ednaldo, miguel));
         postRepository.saveAll(Arrays.asList(post, post1));
 
     }
