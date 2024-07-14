@@ -1,16 +1,17 @@
 package com.workshopmongodb.domain;
 
 import com.workshopmongodb.dto.AuthorDTO;
-import jakarta.persistence.Entity;
-import lombok.Builder;
-import lombok.Data;
+import com.workshopmongodb.dto.CommentDTO;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+@Getter
+@Setter
 
-@Data
-@Builder
-@Entity
 public class Post implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -19,6 +20,8 @@ public class Post implements Serializable {
     private String title;
     private String body;
     private AuthorDTO author;
+    @Getter
+    private List<CommentDTO> comments = new ArrayList<>();
 
     public Post(String id, Date date, String title, String body, AuthorDTO author) {
         this.id = id;
@@ -26,5 +29,14 @@ public class Post implements Serializable {
         this.title = title;
         this.body = body;
         this.author = author;
+    }
+
+    public List<CommentDTO> getComments() {
+        return comments;
+    }
+
+    public Post setComments(List<CommentDTO> comments) {
+        this.comments = comments;
+        return this;
     }
 }
