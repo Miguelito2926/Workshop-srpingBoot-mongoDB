@@ -44,9 +44,10 @@ mvn spring-boot:run
 Uso
 A API estará disponível em http://localhost:8080.
 
-Exemplo de uso com cURL
+Exemplo de uso com CURL
 Criar um usuário
-curl -X POST -H "Content-Type: application/json" -d '{"name": "John Doe", "email": "john@example.com"}' http://localhost:8080/users
+curl -X POST -H "Content-Type: application/json" -d '{"name": "John Doe", "email": "john@example.com"}'
+http://localhost:8080/users
 
 Obter todos os usuários
 curl -X GET http://localhost:8080/users
