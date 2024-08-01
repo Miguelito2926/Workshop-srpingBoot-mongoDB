@@ -1,4 +1,4 @@
-# API de Posts MongoDB 
+# API de Posts com MongoDB 
 
 Esta API foi desenvolvida para um workshop de MongoDB e fornece operações CRUD para gerenciar usuários e posts. A API está implementada utilizando Java com Spring Boot e MongoDB.
 
